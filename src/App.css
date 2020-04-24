@@ -9,7 +9,7 @@
 .counter {
   background-color: white;
   width: 100px;
-  height: 70px;
+  height: 60px;
   border: 5px solid aqua;
   margin: 100px auto;
   text-align: center;
@@ -17,15 +17,18 @@
 }
 
 .buttons {
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 .increment_button,
 .decrement_button {
   background-color: aqua;
-  margin-left: 50px;
   padding: 10px 30px 10px 30px;
   font-size: 30px;
+}
+
+.decrement_button {
+  margin-left: 50px;
 }
 
 .red_value {
