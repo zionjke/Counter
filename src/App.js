@@ -36,10 +36,10 @@ class Counter extends React.Component {
             </span>
           </div>
             <div className="buttons">
-                <button onClick={this.incrementHandler} className="increment_button" disabled={incButtonState}>
+                <button onClick={this.incrementHandler} className="button" disabled={incButtonState}>
                     +
                 </button>
-                <button onClick={this.decrementHandler} className="decrement_button" disabled={decrButtonState}>
+                <button onClick={this.decrementHandler} className="button" disabled={decrButtonState}>
                     -
                 </button>
             </div>

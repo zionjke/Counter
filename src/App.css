@@ -20,15 +20,16 @@
   margin-left: 100px;
 }
 
-.increment_button,
-.decrement_button {
+.button {
+  margin-right: 50px;
   background-color: aqua;
   padding: 10px 30px 10px 30px;
   font-size: 30px;
 }
 
-.decrement_button {
-  margin-left: 50px;
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .red_value {
