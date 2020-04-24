@@ -1,51 +1,44 @@
 import React from 'react';
 import './App.css';
+import Counter from "./components/Counter";
+import Button from "./components/Button";
 
-class Counter extends React.Component {
+class App extends React.Component {
 
     state = {
         counterValue: 0,
-        maxCounterValue:5,
-        minCounterValue:0
+        maxCounterValue: 5,
+        minCounterValue: 0
     };
 
     incrementHandler = () => {
         this.setState({
-            counterValue:this.state.counterValue + 1
+            counterValue: this.state.counterValue + 1
         })
     };
 
-    decrementHandler = () => {
+    resetHandler = () => {
         this.setState({
-            counterValue:this.state.counterValue - 1
+            counterValue: this.state.counterValue = this.state.minCounterValue
         })
     };
 
+    render = () => {
 
-  render = () => {
-
-      let spanClass = this.state.counterValue === this.state.maxCounterValue ? "red_value" : "";
-      let incButtonState = this.state.counterValue === this.state.maxCounterValue ? true : false;
-      let decrButtonState = this.state.counterValue === this.state.minCounterValue ? true : false;
-
-    return (
-        <div className="App">
-          <div className="counter">
-            <span className={spanClass}>
-                {this.state.counterValue}
-            </span>
-          </div>
-            <div className="buttons">
-                <button onClick={this.incrementHandler} className="button" disabled={incButtonState}>
-                    +
-                </button>
-                <button onClick={this.decrementHandler} className="button" disabled={decrButtonState}>
-                    -
-                </button>
+        return (
+            <div className="App">
+                <Counter state={this.state}/>
+                <div className="buttons">
+                    <Button buttonName="+"
+                            onClickButton={this.incrementHandler}
+                            buttonStatus={this.state.counterValue === this.state.maxCounterValue ? true : false}/>
+                    <Button buttonName="R"
+                            onClickButton={this.resetHandler}
+                            buttonStatus={this.state.counterValue === this.state.minCounterValue ? true : false}/>
+                </div>
             </div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
-export default Counter;
+export default App;
