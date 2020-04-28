@@ -19,7 +19,7 @@ class App extends React.Component {
 
     resetHandler = () => {
         this.setState({
-            counterValue: this.state.minCounterValue
+            counterValue: this.state.counterValue = this.state.minCounterValue
         })
     };
 
@@ -31,10 +31,10 @@ class App extends React.Component {
                 <div className="buttons">
                     <Button buttonName="+"
                             onClickButton={this.incrementHandler}
-                            buttonStatus={this.state.counterValue === this.state.maxCounterValue}/>
+                            buttonStatus={this.state.counterValue === this.state.maxCounterValue ? true : false}/>
                     <Button buttonName="R"
                             onClickButton={this.resetHandler}
-                            buttonStatus={this.state.counterValue === this.state.minCounterValue }/>
+                            buttonStatus={this.state.counterValue === this.state.minCounterValue ? true : false}/>
                 </div>
             </div>
         );
