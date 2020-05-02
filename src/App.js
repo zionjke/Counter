@@ -1,44 +1,45 @@
 import React from 'react';
 import './App.css';
 import Counter from "./components/Counter";
-import Button from "./components/Button";
+import Settings from "./components/Settings";
 
 class App extends React.Component {
 
     state = {
-        maxCounterValue: 5,
-        minCounterValue: 0,
-        counterValue: 0
+        maxValue: 5,
+        startValue: 0,
+        counter: 0
     };
 
     incrementHandler = () => {
         this.setState({
-            counterValue: this.state.counterValue + 1
+            counter: this.state.counter + 1
         })
     };
 
     resetHandler = () => {
         this.setState({
-            counterValue : this.state.minCounterValue
+            counter: this.state.startValue
         })
     };
 
+    changeValue = (maxvalue,startvalue) => {
+        this.setState({
+            maxValue: maxvalue,
+            startValue:startvalue,
+            counter:startvalue
+        })
+    }
+
     render = () => {
 
-        let incrementButtonDisabled = this.state.counterValue === this.state.maxCounterValue;
-        let resetButtonDisabled = !this.state.counterValue
 
         return (
             <div className="App">
-                <Counter state={this.state}/>
-                <div className="buttons">
-                    <Button buttonName="+"
-                            onClick={this.incrementHandler}
-                            disabled={incrementButtonDisabled}/>
-                    <Button buttonName="R"
-                            onClick={this.resetHandler}
-                            disabled={resetButtonDisabled}/>
-                </div>
+                <Settings changeValue={this.changeValue}/>
+                <Counter state={this.state}
+                         incrementHandler={this.incrementHandler}
+                         resetHandler={this.resetHandler}/>
             </div>
         );
     }
