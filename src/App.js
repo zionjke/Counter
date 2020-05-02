@@ -6,9 +6,9 @@ import Button from "./components/Button";
 class App extends React.Component {
 
     state = {
-        counterValue: 0,
         maxCounterValue: 5,
-        minCounterValue: 0
+        minCounterValue: 0,
+        counterValue: 0
     };
 
     incrementHandler = () => {
@@ -19,22 +19,25 @@ class App extends React.Component {
 
     resetHandler = () => {
         this.setState({
-            counterValue: this.state.minCounterValue
+            counterValue : this.state.minCounterValue
         })
     };
 
     render = () => {
+
+        let incrementButtonDisabled = this.state.counterValue === this.state.maxCounterValue;
+        let resetButtonDisabled = !this.state.counterValue
 
         return (
             <div className="App">
                 <Counter state={this.state}/>
                 <div className="buttons">
                     <Button buttonName="+"
-                            onClickButton={this.incrementHandler}
-                            buttonStatus={this.state.counterValue === this.state.maxCounterValue}/>
+                            onClick={this.incrementHandler}
+                            disabled={incrementButtonDisabled}/>
                     <Button buttonName="R"
-                            onClickButton={this.resetHandler}
-                            buttonStatus={this.state.counterValue === this.state.minCounterValue}/>
+                            onClick={this.resetHandler}
+                            disabled={resetButtonDisabled}/>
                 </div>
             </div>
         );
