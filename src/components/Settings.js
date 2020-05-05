@@ -6,26 +6,17 @@ import Button from "./Button";
 
 class Settings extends React.Component {
 
-    state = {
-        maxCounterValue: 0,
-        minCounterValue: 0
-    }
 
-    maxValueChanged = (e) => {
-        this.setState({
-            maxCounterValue: e.currentTarget.valueAsNumber
-        })
+
+    maxValue = (e) => {
+        this.props.changeMaxValue(e.currentTarget.valueAsNumber)
     };
 
-    minValueChanged = (e) => {
-        this.setState({
-            minCounterValue: e.currentTarget.valueAsNumber
-        })
+    minValue = (e) => {
+     this.props.changeStartValue(e.currentTarget.valueAsNumber)
     };
 
-    setNewValue = () => {
-        this.props.changeValue(this.state.maxCounterValue, this.state.minCounterValue)
-    }
+
 
     render = () => {
 
@@ -36,20 +27,20 @@ class Settings extends React.Component {
                         <span className={styles.inputName}>max value: </span>
                         <Input className={styles.input}
                                type="number"
-                               value={this.state.maxCounterValue}
-                               onChange={this.maxValueChanged}/>
+                               value={this.props.state.maxValue}
+                               onChange={this.maxValue}/>
                     </div>
                     <div className={styles.inputBlock}>
                         <span className={styles.inputName}>start value: </span>
                         <Input className={styles.input}
                                type="number"
-                               value={this.state.minCounterValue}
-                               onChange={this.minValueChanged}/>
+                               value={this.props.state.startValue}
+                               onChange={this.minValue}/>
                     </div>
                 </div>
                 <div className={styles.buttonBlock}>
                     <Button className={styles.button}
-                            onClick={this.setNewValue}
+                            onClick={this.props.setNewValue}
                             buttonName="Set"/>
                 </div>
 

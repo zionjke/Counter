@@ -23,20 +23,34 @@ class App extends React.Component {
         })
     };
 
-    changeValue = (maxvalue,startvalue) => {
+    changeMaxValue = (newMaxValue) => {
         this.setState({
-            maxValue: maxvalue,
-            startValue:startvalue,
-            counter:startvalue
+            maxValue: newMaxValue
         })
-    }
+    };
+
+    changeStartValue = (newStartValue) => {
+        this.setState({
+            startValue: newStartValue
+        })
+    };
+
+    setNewValue = () => {
+        this.setState({
+            counter: this.state.startValue
+        })
+    };
+
 
     render = () => {
 
 
         return (
             <div className="App">
-                <Settings changeValue={this.changeValue}/>
+                <Settings changeMaxValue={this.changeMaxValue}
+                          changeStartValue={this.changeStartValue}
+                          setNewValue={this.setNewValue}
+                          state={this.state}/>
                 <Counter state={this.state}
                          incrementHandler={this.incrementHandler}
                          resetHandler={this.resetHandler}/>
