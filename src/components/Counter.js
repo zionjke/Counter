@@ -8,14 +8,15 @@ class Counter extends React.Component {
     render = () => {
 
         let spanClass = this.props.state.counter === this.props.state.maxValue ? "red_status" : "";
-        let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue
-        let resetButtonDisabled = this.props.state.counter === this.props.state.startValue
+        let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue;
+        let resetButtonDisabled = this.props.state.counter === this.props.state.startValue;
+        let counterValue = (this.props.state.startValue < 0) || (this.props.state.maxValue < 0) ? "Incorrect Value" : this.props.state.counter;
 
         return (
             <div className={styles.counterBlock}>
                 <div className={styles.counter}>
             <span className={spanClass}>
-                {this.props.state.counter}
+                {counterValue}
             </span>
                 </div>
                 <div className={styles.buttons}>
