@@ -6,9 +6,10 @@ import Settings from "./components/Settings";
 class App extends React.Component {
 
     state = {
-        maxValue: 5,
         startValue: 0,
-        counter: 0
+        maxValue:5,
+        counter: 0,
+        setButtonDisabled: false
     };
 
     incrementHandler = () => {
@@ -25,25 +26,27 @@ class App extends React.Component {
 
     changeMaxValue = (newMaxValue) => {
         this.setState({
-            maxValue: newMaxValue
+            maxValue: newMaxValue,
+            setButtonDisabled: false
         })
     };
 
     changeStartValue = (newStartValue) => {
         this.setState({
-            startValue: newStartValue
+            startValue: newStartValue,
+            setButtonDisabled: false
         })
     };
 
     setNewValue = () => {
         this.setState({
-            counter: this.state.startValue
+            counter: this.state.startValue,
+            setButtonDisabled: true
         })
     };
 
 
     render = () => {
-
 
         return (
             <div className="App">

@@ -7,7 +7,6 @@ import Button from "./Button";
 class Settings extends React.Component {
 
 
-
     maxValue = (e) => {
         this.props.changeMaxValue(e.currentTarget.valueAsNumber)
     };
@@ -15,7 +14,6 @@ class Settings extends React.Component {
     minValue = (e) => {
      this.props.changeStartValue(e.currentTarget.valueAsNumber)
     };
-
 
 
     render = () => {
@@ -41,7 +39,8 @@ class Settings extends React.Component {
                 <div className={styles.buttonBlock}>
                     <Button className={styles.button}
                             onClick={this.props.setNewValue}
-                            buttonName="Set"/>
+                            buttonName="Set"
+                            disabled={this.props.state.setButtonDisabled}/>
                 </div>
 
             </div>

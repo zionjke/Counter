@@ -7,9 +7,10 @@ class Counter extends React.Component {
 
     render = () => {
 
-        let spanClass = this.props.state.counter === this.props.state.maxValue ? "red_status" : "";
-        let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue
-        let resetButtonDisabled = this.props.state.counter === this.props.state.startValue
+        let spanClass = this.props.state.counter === this.props.state.maxValue ? "red_value" : "";
+        let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue;
+        let resetButtonDisabled = this.props.state.counter === this.props.state.startValue;
+
 
         return (
             <div className={styles.counterBlock}>
