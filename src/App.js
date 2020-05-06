@@ -25,17 +25,35 @@ class App extends React.Component {
     };
 
     changeMaxValue = (newMaxValue) => {
-        this.setState({
-            maxValue: newMaxValue,
-            setButtonDisabled: false
-        })
+        if(newMaxValue < 0 ) {
+            this.setState({
+                counter: "error",
+                maxValue: newMaxValue,
+                setButtonDisabled: true
+            })
+        } else {
+            this.setState({
+                counter: "press set",
+                maxValue: newMaxValue,
+                setButtonDisabled: false
+            })
+        }
     };
 
     changeStartValue = (newStartValue) => {
-        this.setState({
-            startValue: newStartValue,
-            setButtonDisabled: false
-        })
+        if(newStartValue < 0 ) {
+            this.setState({
+                counter: "error",
+                startValue: newStartValue,
+                setButtonDisabled: true
+            })
+        } else {
+            this.setState({
+                counter: "press set",
+                startValue: newStartValue,
+                setButtonDisabled: false
+            })
+        }
     };
 
     setNewValue = () => {
