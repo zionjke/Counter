@@ -9,7 +9,7 @@ class App extends React.Component {
         startValue: 0,
         maxValue:5,
         counter: 0,
-        setButtonDisabled: false
+        setButtonDisabled: true
     };
 
     incrementHandler = () => {
@@ -25,7 +25,7 @@ class App extends React.Component {
     };
 
     changeMaxValue = (newMaxValue) => {
-        if(newMaxValue < 0 ) {
+        if( newMaxValue < 0 || newMaxValue <= this.state.startValue || this.state.startValue < 0 ) {
             this.setState({
                 counter: "error",
                 maxValue: newMaxValue,
@@ -41,7 +41,7 @@ class App extends React.Component {
     };
 
     changeStartValue = (newStartValue) => {
-        if(newStartValue < 0 ) {
+        if(newStartValue < 0 || newStartValue >= this.state.maxValue ) {
             this.setState({
                 counter: "error",
                 startValue: newStartValue,
