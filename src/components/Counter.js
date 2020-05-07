@@ -8,8 +8,8 @@ class Counter extends React.Component {
     render = () => {
 
         let spanClass = this.props.state.counter === this.props.state.maxValue ? "red_value" : "";
-        // let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue;
-        // let resetButtonDisabled = this.props.state.counter === this.props.state.startValue;
+        let incrementButtonDisabled = this.props.state.counter === this.props.state.maxValue;
+        let resetButtonDisabled = this.props.state.counter === this.props.state.startValue;
 
 
         return (
@@ -22,11 +22,11 @@ class Counter extends React.Component {
                 <div className={styles.buttons}>
                     <Button buttonName="+"
                             onClick={this.props.incrementHandler}
-                            disabled={this.props.state.incButtonDisabled}
+                            disabled={incrementButtonDisabled}
                             className={styles.button}/>
                     <Button buttonName="R"
                             onClick={this.props.resetHandler}
-                            disabled={this.props.state.resetButtonDisabled}
+                            disabled={resetButtonDisabled}
                             className={styles.button}/>
                 </div>
             </div>

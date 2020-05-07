@@ -10,19 +10,18 @@ class App extends React.Component {
         maxValue:5,
         counter: 0,
         setButtonDisabled: true,
-        incButtonDisabled: false,
-        resetButtonDisabled: false
     };
 
     incrementHandler = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        })
+            this.setState({
+                counter: this.state.counter + 1
+            })
     };
 
     resetHandler = () => {
         this.setState({
-            counter: this.state.startValue
+            counter: this.state.startValue,
+            incButtonDisabled: false
         })
     };
 
@@ -32,16 +31,12 @@ class App extends React.Component {
                 counter: "error",
                 maxValue: newMaxValue,
                 setButtonDisabled: true,
-                incButtonDisabled: true,
-                resetButtonDisabled: true
             })
         } else {
             this.setState({
                 counter: "press set",
                 maxValue: newMaxValue,
                 setButtonDisabled: false,
-                incButtonDisabled: true,
-                resetButtonDisabled: true
             })
         }
     };
@@ -52,16 +47,12 @@ class App extends React.Component {
                 counter: "error",
                 startValue: newStartValue,
                 setButtonDisabled: true,
-                incButtonDisabled: true,
-                resetButtonDisabled: true
             })
         } else {
             this.setState({
                 counter: "press set",
                 startValue: newStartValue,
                 setButtonDisabled: false,
-                incButtonDisabled: true,
-                resetButtonDisabled: true
             })
         }
     };
@@ -70,8 +61,6 @@ class App extends React.Component {
         this.setState({
             counter: this.state.startValue,
             setButtonDisabled: true,
-            incButtonDisabled: false,
-            resetButtonDisabled: false
         })
     };
 
