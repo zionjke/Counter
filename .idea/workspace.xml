@@ -4,6 +4,7 @@
     <list default="true" id="a17dbdc0-10e6-41cb-8e36-cfa250fda20a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Counter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,8 @@
       <workItem from="1588707699690" duration="728000" />
       <workItem from="1588709462234" duration="635000" />
       <workItem from="1588746650596" duration="258000" />
-      <workItem from="1588848269753" duration="1918000" />
+      <workItem from="1588848269753" duration="3111000" />
+      <workItem from="1588855544452" duration="1293000" />
     </task>
     <task id="LOCAL-00001" summary="create project">
       <created>1587730499279</created>
@@ -115,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588427566557</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactoring ++">
+      <created>1588850450344</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588850450344</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,18 +135,19 @@
     <MESSAGE value="refactoring css" />
     <MESSAGE value="refactoring+" />
     <MESSAGE value="add Settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Settings" />
+    <MESSAGE value="refactoring ++" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring ++" />
   </component>
   <component name="WindowStateProjectService">
     <state x="633" y="311" key="#ESLint" timestamp="1588417977419">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="633" y="311" key="#ESLint/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588417977419" />
-    <state x="466" y="0" key="CommitChangelistDialog2" timestamp="1588427565227">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="583" y="29" key="CommitChangelistDialog2" timestamp="1588850449306">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="466" y="0" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588427565227" />
-    <state x="583" y="29" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587730793746" />
+    <state x="583" y="29" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588850449306" />
     <state x="592" y="219" key="FileChooserDialogImpl" timestamp="1588706807533">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -168,11 +178,11 @@
     </state>
     <state width="1515" height="204" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1587741057463" />
     <state width="1899" height="261" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588746761917" />
-    <state x="442" y="198" key="Vcs.Push.Dialog.v2" timestamp="1588427567794">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2" timestamp="1588850451835">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="442" y="198" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1588427567794" />
-    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587730795612" />
+    <state x="552" y="250" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588850451835" />
     <state x="521" y="186" key="git4idea.merge.GitPullDialog" timestamp="1588414729509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
