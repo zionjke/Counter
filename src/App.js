@@ -12,6 +12,17 @@ class App extends React.Component {
         setButtonDisabled: true,
     };
 
+    saveState = () => {
+        let  stateAString = JSON.stringify(this.state);
+        localStorage.setItem("state", stateAString);
+    }
+
+    restoreState = () => {
+        let stateAString = localStorage.getItem('state');
+        let state = JSON.parse(stateAString)
+        this.setState(state)
+    }
+
     incrementHandler = () => {
             this.setState({
                 counter: this.state.counter + 1
@@ -20,8 +31,7 @@ class App extends React.Component {
 
     resetHandler = () => {
         this.setState({
-            counter: this.state.startValue,
-            incButtonDisabled: false
+            counter: this.state.startValue
         })
     };
 
@@ -31,13 +41,13 @@ class App extends React.Component {
                 counter: "error",
                 maxValue: newMaxValue,
                 setButtonDisabled: true,
-            })
+            },() => { this.saveState()})
         } else {
             this.setState({
                 counter: "press set",
                 maxValue: newMaxValue,
                 setButtonDisabled: false,
-            })
+            },() => { this.saveState()})
         }
     };
 
@@ -47,13 +57,13 @@ class App extends React.Component {
                 counter: "error",
                 startValue: newStartValue,
                 setButtonDisabled: true,
-            })
+            },() => { this.saveState()})
         } else {
             this.setState({
                 counter: "press set",
                 startValue: newStartValue,
                 setButtonDisabled: false,
-            })
+            },() => { this.saveState()})
         }
     };
 
@@ -61,9 +71,12 @@ class App extends React.Component {
         this.setState({
             counter: this.state.startValue,
             setButtonDisabled: true,
-        })
+        },() => { this.saveState()})
     };
 
+    componentDidMount() {
+        this.restoreState()
+    }
 
     render = () => {
 
