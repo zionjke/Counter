@@ -18,19 +18,25 @@ class Settings extends React.Component {
 
     render = () => {
 
+        let classForInput = this.props.state.maxValue === this.props.state.startValue ||
+                             this.props.state.maxValue < 0 ||
+                             this.props.state.startValue > this.props.state.maxValue ||
+                             this.props.state.startValue < 0 ? styles.errorInput : styles.input
+
+
         return (
             <div className={styles.settings}>
                 <div className={styles.inputsBlock}>
                     <div className={styles.inputBlock}>
                         <span className={styles.inputName}>max value: </span>
-                        <Input className={styles.input}
+                        <Input className={classForInput}
                                type="number"
                                value={this.props.state.maxValue}
                                onChange={this.maxValue}/>
                     </div>
                     <div className={styles.inputBlock}>
                         <span className={styles.inputName}>start value: </span>
-                        <Input className={styles.input}
+                        <Input className={classForInput}
                                type="number"
                                value={this.props.state.startValue}
                                onChange={this.minValue}/>
