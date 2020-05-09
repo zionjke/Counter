@@ -23,6 +23,7 @@
 }
 
 .button {
+    border: none;
     border-radius: 15px;
     margin-right: 50px;
     background-color: aqua;
