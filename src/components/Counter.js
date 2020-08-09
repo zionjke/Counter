@@ -20,8 +20,8 @@ class Counter extends React.Component {
 
 
         return (
-            <div className={styles.counterBlock}>
-                <div className={styles.counter}>
+            <div className={styles.container}>
+                <div className={styles.display}>
             <span className={spanClass}>
                 {this.props.state.counter}
             </span>
@@ -31,7 +31,7 @@ class Counter extends React.Component {
                             onClick={this.props.incrementHandler}
                             disabled={incrementButtonDisabled}
                             className={styles.button}/>
-                    <Button buttonName="R"
+                    <Button buttonName="Reset"
                             onClick={this.props.resetHandler}
                             disabled={resetButtonDisabled}
                             className={styles.button}/>

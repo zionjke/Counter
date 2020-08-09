@@ -2,96 +2,82 @@ import React from 'react';
 import './App.css';
 import Counter from "./components/Counter";
 import Settings from "./components/Settings";
+import {connect} from "react-redux";
+import {incrementAC, maxValueAC, resetAC, setValueAC, startValueAC} from "./redux/reducer";
 
-class App extends React.Component {
-
-    state = {
-        startValue: 0,
-        maxValue:5,
-        counter: 0,
-        setButtonDisabled: true,
-    };
-
-    saveState = () => {
-        let  stateAString = JSON.stringify(this.state);
-        localStorage.setItem("state", stateAString);
-    }
-
-    restoreState = () => {
-        let stateAString = localStorage.getItem('state');
-        let state = JSON.parse(stateAString)
-        this.setState(state)
-    }
+class MyCounter extends React.Component {
 
     incrementHandler = () => {
-            this.setState({
-                counter: this.state.counter + 1
-            })
+        this.props.increment()
     };
 
     resetHandler = () => {
-        this.setState({
-            counter: this.state.startValue
-        })
+        this.props.reset()
     };
 
     changeMaxValue = (newMaxValue) => {
-        if( newMaxValue < 0 || newMaxValue <= this.state.startValue || this.state.startValue < 0 ) {
-            this.setState({
-                counter: "error",
-                maxValue: newMaxValue,
-                setButtonDisabled: true,
-            },() => { this.saveState()})
-        } else {
-            this.setState({
-                counter: "press set",
-                maxValue: newMaxValue,
-                setButtonDisabled: false,
-            },() => { this.saveState()})
-        }
+        this.props.maxValue(newMaxValue)
     };
 
     changeStartValue = (newStartValue) => {
-        if(newStartValue < 0 || newStartValue >= this.state.maxValue ) {
-            this.setState({
-                counter: "error",
-                startValue: newStartValue,
-                setButtonDisabled: true,
-            },() => { this.saveState()})
-        } else {
-            this.setState({
-                counter: "press set",
-                startValue: newStartValue,
-                setButtonDisabled: false,
-            },() => { this.saveState()})
-        }
+        this.props.startValue(newStartValue)
+
     };
 
     setNewValue = () => {
-        this.setState({
-            counter: this.state.startValue,
-            setButtonDisabled: true,
-        },() => { this.saveState()})
+        this.props.newValue()
     };
 
-    componentDidMount() {
-        this.restoreState()
-    }
 
     render = () => {
 
         return (
             <div className="App">
-                <Settings changeMaxValue={this.changeMaxValue}
-                          changeStartValue={this.changeStartValue}
-                          setNewValue={this.setNewValue}
-                          state={this.state}/>
-                <Counter state={this.state}
-                         incrementHandler={this.incrementHandler}
-                         resetHandler={this.resetHandler}/>
+                <div className='settings'>
+                    <Settings changeMaxValue={this.changeMaxValue}
+                              changeStartValue={this.changeStartValue}
+                              setNewValue={this.setNewValue}
+                              state={this.props.counter}/>
+                </div>
+                <div className='counter'>
+                    <Counter state={this.props.counter}
+                             incrementHandler={this.incrementHandler}
+                             resetHandler={this.resetHandler}/>
+                </div>
             </div>
         );
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        counter: state.counter
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        increment: () => {
+            const action = incrementAC();
+            dispatch(action)
+        },
+        reset: () => {
+            const action = resetAC()
+            dispatch(action)
+        },
+        maxValue: (newMaxValue) => {
+            const action = maxValueAC(newMaxValue);
+            dispatch(action)
+        },
+        startValue: (newStartValue) => {
+            const action = startValueAC(newStartValue);
+            dispatch(action)
+        },
+        newValue: () => {
+            const action = setValueAC();
+            dispatch(action)
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyCounter)

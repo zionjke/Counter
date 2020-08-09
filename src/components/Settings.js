@@ -18,30 +18,23 @@ class Settings extends React.Component {
 
     render = () => {
 
-        let classForInput = this.props.state.maxValue === this.props.state.startValue ||
-                             this.props.state.maxValue < 0 ||
-                             this.props.state.startValue > this.props.state.maxValue ||
-                             this.props.state.startValue < 0 ? styles.errorInput : styles.input
-
+        let classForInput =  this.props.state.counter === "error" && styles.errorInput
 
         return (
-            <div className={styles.settings}>
-                <div className={styles.inputsBlock}>
-                    <div className={styles.inputBlock}>
-                        <span className={styles.inputName}>max value: </span>
-                        <Input className={classForInput}
-                               type="number"
-                               value={this.props.state.maxValue}
-                               onChange={this.maxValue}/>
+            <div className={styles.container}>
+                    <div className={styles.display}>
+                            <span>max value: </span>
+                            <Input className={classForInput}
+                                   type="number"
+                                   value={this.props.state.maxValue}
+                                   onChange={this.maxValue}/>
+
+                            <span>start value: </span>
+                            <Input className={classForInput}
+                                   type="number"
+                                   value={this.props.state.startValue}
+                                   onChange={this.minValue}/>
                     </div>
-                    <div className={styles.inputBlock}>
-                        <span className={styles.inputName}>start value: </span>
-                        <Input className={classForInput}
-                               type="number"
-                               value={this.props.state.startValue}
-                               onChange={this.minValue}/>
-                    </div>
-                </div>
                 <div className={styles.buttonBlock}>
                     <Button className={styles.button}
                             onClick={this.props.setNewValue}

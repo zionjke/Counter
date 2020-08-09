@@ -1,9 +1,13 @@
 .App {
-  margin-top: 200px;
   display: flex;
-  justify-content: center;
+  text-align: center;
   align-items: center;
-  align-content: space-between;
+  justify-content: space-evenly;
+  color: #282c34;
+  height: 100vh;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Lemonada', cursive;
 }
 
 .red_value {
